@@ -1,0 +1,40 @@
+body {
+  padding: 50px;
+  font: 14px sans-serif;
+  color: rgb(2, 78, 133);
+  font-weight: lighter;
+}
+
+a {
+  color: #00B7FF;
+}
+textarea{
+  height: 100px;
+  width: 100px;
+}
+h1{
+  color: rgb(2, 78, 133);
+  font-size: 25px;
+  font-weight: lighter;
+  font-family: sans-serif;
+  margin-left: 20px;
+}
+input[type="submit"]{
+  width: 50px;
+  height:  30px;
+  border: none;
+  box-shadow: none;
+  background-color: rgb(2, 78, 133);
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.container{
+  display: flex;
+}
+.col{
+  flex: 0 0 30%;
+  background-color: rgb(190, 203, 214);
+  margin-left: 20px;
+  padding: 10px 20px;
+}
