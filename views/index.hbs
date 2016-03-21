@@ -1,2 +1,17 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+{{#list}}
+{{this}}
+<form action="/delete/{{this}}" method="post">
+  <input type="submit" value="Delete Item">
+</form>
+<a href="/edit/{{this}}">Edit {{this}}</a><br><br>
+{{/list}}
+
+{{#if error}}
+{{error}}
+{{/if}}
+
+<form action="/add" method="post">
+  <label> Add Grocery Item</label>
+  <input type="text" name="name">
+  <input type="submit" value="Add item">
+</form>
