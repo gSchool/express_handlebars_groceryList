@@ -1,0 +1,26 @@
+
+<form class="" action="/" method="post">
+  <label>Add Grocery Item</label>
+  <input type="text" name="name" value="">
+  <input type="submit"  value="Add Item">
+
+</form>
+
+<!-- <form class="" action="/" method="post">
+  <label>Remove Grocery Item</label>
+  <input type="text" name="name" value="">
+  <input type="submit"  value="Remove Item">
+
+</form> -->
+
+{{#list}}
+<h1>{{this}}</h1>
+<a href="/edit/{{this}}">Edit</a>
+<form action="/delete/{{this}}" method="post">
+  <input type="submit" value="Remove!">
+</form>
+{{/list}}
+
+{{#if error}}
+{{error}}
+{{/if}}
