@@ -1,2 +1,23 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<h1>Grocery List</h1>
+
+{{#list}}
+<h3>{{this}}</h3>
+<form action="/delete/{{this}}" method="post">
+  <input type="submit" value="delete">
+</form>
+<form action="/update/{{this}}" method="post">
+  <input type="text" name='name' placeholder="update item here">
+  <input type="submit" value="update">
+</form>
+<hr>
+{{/list}}
+
+{{#if error}}
+{{error}}
+{{/if}}
+
+<form action="/" method="post">
+  <label>Grocery Item</label>
+  <input type="text" name="name">
+  <input type="submit" value="item">
+</form>
