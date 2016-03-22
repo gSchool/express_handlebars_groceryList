@@ -1,0 +1,25 @@
+{{#if list}}
+<ul>
+{{#list}}
+  <li>
+    {{this}}
+    <form action="/" method="post">
+      <input type="hidden" name="item" value={{@index}} />
+      <input type="hidden" name="method" value="DELETE" />
+      <input type='submit' value="Delete" />
+    </form>
+    <a href="/edit/{{@index}}">Edit</a>
+  </li>
+{{/list}}
+</ul>
+{{/if}}
+
+{{#if error}}
+  {{error}}
+{{/if}}
+
+<form action="/" method="post">
+  <label>Grocery Item</label>
+  <input type="text" name="name">
+  <input type="submit" value="Item">
+</form>
