@@ -1,2 +1,27 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+{{#if error}}
+{{error}}
+{{/if}}
+{{#if del}}
+{{del}}
+{{/if}}
+<h1>Add an Item</h1>
+
+
+<form class="" action='/' method="post">
+  <input type="text" name="name">
+  <input type="submit" id='add' value='Add'>
+</form>
+
+
+{{#each title}}
+  <div class='{{@index}}'>
+    <p> {{@index}}: {{this}} </p>
+    <form id='list' action="/del/{{@index}}" method="post">
+      <input type="submit" name="name" value='delete' class='{{@index}}'>
+    </form>
+    <form class="{{@index}}" action="/edit/{{@index}}/" method="post">
+      <input type="text" name="edit" class="{{@index}}">
+      <input type="submit" name="name" value='edit' class='{{@index}}'>
+    </form>
+  </div>
+{{/each}}
