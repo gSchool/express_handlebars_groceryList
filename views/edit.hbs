@@ -1,6 +1,26 @@
 Edit {{item}}
 
 
+<!-- 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+
+<script>
+
+$(document).ready(function () {
+    $('#editedItem').on('click', function () {
+        var domain = "http://localhost:3000/edited/?";
+        var data = $(this).serialize();
+
+        location.href = domain + data;
+
+        return false;
+    });
+});
+</script> -->
+
+
+
 <form action='/edited' method='post'>
   <input id='editedItem' type="text" name="name" value="{{item}}">
   <input type="submit" name="name" value="Submit">
