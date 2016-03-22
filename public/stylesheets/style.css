@@ -1,0 +1,17 @@
+body{
+  padding: 30px;
+}
+
+div{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  border-bottom: 1px solid black;
+}
+p{
+  margin-top: 0px;
+  width: 100px;
+}
+#list{
+  margin-left: 5px;
+}
