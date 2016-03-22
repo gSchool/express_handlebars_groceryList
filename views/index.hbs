@@ -1,0 +1,23 @@
+<h1>Here's that list, yo. </h1>
+
+{{#list}}
+  <div class="listDiv">
+    {{this}}...
+    <form action="/delete/{{this}}" method="post">
+      <input type="submit" value="Delete Item">
+    </form>
+    <a href="/edit/{{this}}"><button>Edit Item</button></a>
+  </div>
+{{/list}}
+
+{{#if error}}
+  {{error}}
+{{/if}}
+
+<h2> That list lookin' short? Append a snacky, bruh. </h2>
+
+<form id="margin-top" action="/" method="post">
+  <!-- <label>Grocery Item</label> -->
+  <input type="text" name="name" placeholder="Add your tasty here.">
+  <input type="submit" value="Yes, I want this!">
+</form>
