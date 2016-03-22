@@ -6,3 +6,18 @@ body {
 a {
   color: #00B7FF;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row h3 {
+  margin: 0px;
+}
+
+h1 {
+  font-family: halloween too;
+  font-size: 50px;
+  color: rgb(76, 112, 67);
+}

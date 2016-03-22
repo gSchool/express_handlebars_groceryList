@@ -43,12 +43,13 @@ router.post('/update/:item', function(req, res, next) {
     if ( err ) console.log(err);
     list = data.split("\n");
     for (var i = 0; i < list.length; i++) {
-      if ( list[i] == req.params.item ) list[i] = req.body.name;
+      if ( list[i] == req.params.item ) list[i] = req.body.update;
       if ( list[i] == "") list.splice(i, 1);
     };
     fs.writeFile('groceryList.txt', list.join("\n"), function(err){
       if ( err ) console.log(err);
     });
+    res.render('index', { list: list });
   })
 });
 

@@ -1,12 +1,14 @@
-<h1>Grocery List</h1>
+<h1>GROSS-ERY LIST</h1>
 
 {{#list}}
+<div class="row">
 <h3>{{this}}</h3>
 <form action="/delete/{{this}}" method="post">
   <input type="submit" value="delete">
 </form>
+</div>
 <form action="/update/{{this}}" method="post">
-  <input type="text" name='name' placeholder="update item here">
+  <input type="text" name='update' placeholder="update item here">
   <input type="submit" value="update">
 </form>
 <hr>
@@ -17,7 +19,7 @@
 {{/if}}
 
 <form action="/" method="post">
-  <label>Grocery Item</label>
+  <label>Add your gross groceries</label>
   <input type="text" name="name">
-  <input type="submit" value="item">
+  <input type="submit" value="add">
 </form>
