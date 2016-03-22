@@ -1,0 +1,20 @@
+{{#list}}
+{{this}}
+<a href = "/edit/{{this}}"> Edit item</a>
+
+<form action="/delete/{{this}}" method="post">
+  <input type="submit" value="Delete Item">
+</form>
+<br>
+{{/list}}
+
+
+{{#if error}}
+{{error}}
+{{/if}}
+
+<form action="/" method="post">
+  <label>Grocery Item</label>
+  <input type="text" name="name" autofocus>
+  <input type="submit" value="Item">
+</form>
