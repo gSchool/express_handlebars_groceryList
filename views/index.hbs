@@ -1,0 +1,22 @@
+<h1>This is the most ridiculous grocery app made</h1>
+<ul style="list-style-type: none;">
+{{#list}}
+  <li>
+<p>{{this}}</p>
+<form class="hvr-hang" action="../delete/{{this}}" method="post">
+  <input type="submit" value="Delete item">
+  <a href="/edit/{{this}}">Edit Item</a>
+</form>
+</li>
+{{/list}}
+</ul>
+
+{{#if error}}
+{{error}}
+{{/if}}
+
+<form class="sad" action="/add" method="post">
+  <label for="add">Grocery Item</label>
+  <input id="add" type="text" name="name" placeholder="item" value="">
+<input type="submit" value="Add stuff">
+</form>
