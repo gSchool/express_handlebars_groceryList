@@ -1,0 +1,25 @@
+<h1>GROSS-ERY LIST</h1>
+
+{{#list}}
+<div class="row">
+<h3>{{this}}</h3>
+<form action="/delete/{{this}}" method="post">
+  <input type="submit" value="delete">
+</form>
+</div>
+<form action="/update/{{this}}" method="post">
+  <input type="text" name='update' placeholder="update item here">
+  <input type="submit" value="update">
+</form>
+<hr>
+{{/list}}
+
+{{#if error}}
+{{error}}
+{{/if}}
+
+<form action="/" method="post">
+  <label>Add your gross groceries</label>
+  <input type="text" name="name">
+  <input type="submit" value="add">
+</form>
