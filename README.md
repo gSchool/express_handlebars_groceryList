@@ -6,7 +6,7 @@ This assignment will be very simple.  Make a pretty UX for your app.
 Add server side scripting to your application.  Use handlebars scripting
 to display the items on your grocery list.  
 
-Make sure your routes are set up to use the proper HTTP Methdods
+Make sure your routes are set up to use the proper HTTP Methods
 
 Example:
 ```
