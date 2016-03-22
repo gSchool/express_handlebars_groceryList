@@ -1,0 +1,21 @@
+<form action="/add" method="post">
+  <label>Grocery Item</label>
+  <input type="text" name="name">
+  <input type="submit" value="item">
+</form>
+
+
+
+
+{{#list}}
+{{this}}
+<form action="/delete/{{this}}" method="post">
+  <input type="submit" value="Delete Item">
+</form>
+<a href="/edit/{{this}}">Edit Item</a>
+<br><br>
+{{/list}}
+
+{{#if error}}
+{{error}}
+{{/if}}
