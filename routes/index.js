@@ -21,9 +21,9 @@ router.get('/edit/:item', function(req, res, next) {
 });
 
 router.post('/edit/:item', function(req, res, next) {
-  if (req.body.name) {
+  if (req.body.newItem) {
     fs.readFile('groceryList.txt', 'utf8', function(err, list) {
-      var newItem = req.body.name
+      var newItem = req.body.newItem
       var oldItem = req.params.item
       console.log(oldItem);
       if (err) {
