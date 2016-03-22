@@ -1,0 +1,23 @@
+<h1>{{title}}</h1>
+
+
+{{#list}}
+{{this}}
+<form class="" action="/delete/{{this}}" method="post">
+    <input type="submit" value=" Delete Item">
+    <a href="/edit/{{this}}">Edit Item</a>
+</form>
+<br>
+{{/list}}
+
+
+{{#if error}}
+{{error}}
+{{/if}}
+
+
+<form class="" action="/add" method="post">
+    <label for="">Grocery Item</label>
+    <input type="text" name="name" value="">
+    <input type="submit"  value="Add Item">
+</form>
