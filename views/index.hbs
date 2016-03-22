@@ -1,0 +1,21 @@
+{{#if error}}
+    {{error}}
+{{/if}}
+
+{{#list}}
+    <div>
+    <h3>{{this}}</h3>
+    <form action="/delete/{{this}}" method="post">
+        <input type="submit" value="delete item" class="items">
+    </form>
+    <a href="/edit/{{this}}" class="items" >Edit item</a>
+    </form>
+    </div>
+{{/list}}
+
+<div class="add">
+    <form action="/add" method="post">
+        <input type="text" name="name" class="name">
+        <input type="submit" value="Add to list">
+    </form>
+</div>
