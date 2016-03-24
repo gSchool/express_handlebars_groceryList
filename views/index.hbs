@@ -8,6 +8,9 @@
 {{#groceryList}}
   <div>
     <h3>{{this}}</h3>
+    <form action="/delete/{{this}}" method="post">
+      <input type="submit" value="Delete {{this}}">
+    </form>
   </div>
 {{/groceryList}}
 

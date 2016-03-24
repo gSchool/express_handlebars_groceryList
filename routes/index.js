@@ -33,4 +33,21 @@ router.post('/', function(req, res, next) {
   }
 });
 
+/* Delete items from list */
+router.post('/delete/:item', function(req, res, next) {
+  fs.readFile('grocerylist.txt', 'utf8', function(err, data) {
+    var list = data.split('\n');
+    var indexOfItem = list.indexOf(req.params.item);
+    list.splice(indexOfItem, 1);
+    var itemsBackToString = list.join('\n');
+    fs.writeFile('grocerylist.txt', itemsBackToString, function(err) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.redirect('/');
+      }
+    });
+  });
+});
+
 module.exports = router;
