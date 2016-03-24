@@ -61,10 +61,8 @@ router.post('/delete/:item', function(req, res, next) {
 router.post('/edit/:item', function(req, res, next) {
   fs.readFile('grocerylist.txt', 'utf8', function(err, data) {
     var list = data.split('\n');
-    list.splice(list.length - 1, 1);
-    list.push(req.body.newItem, '');
     var indexOfItem = list.indexOf(req.params.item);
-    list.splice(indexOfItem, 1);
+    list.splice(indexOfItem, 1, req.body.newItem);
     var itemsBackToString = list.join('\n');
     fs.writeFile('grocerylist.txt', itemsBackToString, function(err) {
       if (err) {
