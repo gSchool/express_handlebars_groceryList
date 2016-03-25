@@ -16,8 +16,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/add', function(req, res, next) {
-  if (req.body.name) {
-    fs.appendFile('groceryList.txt', req.body.name + "\n", function(err) {
+  if (req.body.addname) {
+    fs.appendFile('grocerylist.txt', req.body.addname + "\n", function(err) {
       if (err) {
         console.log(err);
       } else {
@@ -33,14 +33,14 @@ router.post('/add', function(req, res, next) {
 
 router.post('/delete/:item', function(req, res, next) {
 
-  fs.readFile('groceryList.txt', 'utf-8', function(err, data) {
+  fs.readFile('grocerylist.txt', 'utf-8', function(err, data) {
     var dataArr = data.split('\n');
     for (var i = 0; i < dataArr.length; i++) {
       if (req.params.item.toLowerCase() === dataArr[i].toLowerCase()) {
         dataArr.splice(i, 1);
       }
     }
-    fs.writeFile('groceryList.txt', dataArr.join('\n'), function(err) {
+    fs.writeFile('grocerylist.txt', dataArr.join('\n'), function(err) {
       if (err) {
         console.log(err);
       } else {
@@ -53,15 +53,41 @@ router.post('/delete/:item', function(req, res, next) {
 
 router.get('/edit/:item', function (req, res, err) {
   var item = req.params.item;
+  var newitem = req.body.newitem;
+
   res.render('edit', {
-    item: item
+    item: item,
+    newitem: newitem
   })
+
 });
 
-router.post('/edited', function (req, res, err) {
-  res.redirect('/');
+router.post('/edited/:olditem', function (req, res, err) {
+  var olditem = req.params.olditem;
+
+  if (req.body.newitem) {
+
+    fs.readFile('grocerylist.txt', 'utf-8', function(err, data) {
+      var dataArr = data.split('\n');
+
+      for (var i = 0; i < dataArr.length; i++) {
+        if (req.params.olditem.toLowerCase() === dataArr[i].toLowerCase()) {
+          dataArr[i] = req.body.newitem;
+        }
+      }
+
+      fs.writeFile('grocerylist.txt', dataArr.join('\n'), function(err) {
+        if (err) {
+          console.log(err);
+        } else {
+          res.redirect('/');
+        }
+      })
+
+    })
+
+  }
+
 });
-
-
 
 module.exports = router;

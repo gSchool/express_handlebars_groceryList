@@ -1,2 +1,4 @@
-a
-qq
+palm
+fish
+lettuce
+mango
